@@ -1,6 +1,7 @@
 import 'package:dashboard_template/constants/controllers.dart';
 import 'package:dashboard_template/constants/style.dart';
 import 'package:dashboard_template/layout.dart';
+import 'package:dashboard_template/routing/routes.dart';
 import 'package:dashboard_template/widgets/custom_text.dart';
 import 'package:dashboard_template/widgets/responsiveness.dart';
 import 'package:flutter/material.dart';
@@ -77,7 +78,7 @@ class AuthenticationPage extends StatelessWidget {
                       SizedBox(height: 15),
                       InkWell(
                         onTap: () {
-                          Get.offAll(() => SiteLayout());
+                          Get.offAllNamed(RootRoute);
                         },
                         child: Container(
                           decoration: BoxDecoration(

@@ -2,7 +2,9 @@ import 'package:dashboard_template/constants/style.dart';
 import 'package:dashboard_template/controllers/menu_controller.dart';
 import 'package:dashboard_template/controllers/navigation_controller.dart';
 import 'package:dashboard_template/layout.dart';
+import 'package:dashboard_template/pages/4040/error_page.dart';
 import 'package:dashboard_template/pages/authentication/authentication.dart';
+import 'package:dashboard_template/routing/routes.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -19,6 +21,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      initialRoute: AuthenticationPageRoute,
+      unknownRoute: GetPage(
+          name: "/not-found",
+          page: () => PageNotFound(),
+          transition: Transition.fadeIn),
+      getPages: [
+        GetPage(name: RootRoute, page: () => SiteLayout()),
+        GetPage(
+            name: AuthenticationPageRoute, page: () => AuthenticationPage()),
+      ],
       debugShowCheckedModeBanner: false,
       title: "Dash",
       theme: ThemeData(
